@@ -1,0 +1,13 @@
+<div class="input_container">
+  <input type="text" placeholder="Create a new Task" #inputTask
+          (keyup.enter)="add(inputTask.value);inputTask.value=''">
+  <button class="add-button"  (click)="add(inputTask.value); inputTask.value=''"><i class="fa fa-plus"></i></button>
+  <ul *ngFor="let task of tasksList">
+    <li>
+      <div (click)="complete(task.id)">
+        {{task.name}} <i *ngIf="task.completed" class="material-icons">done</i>
+      </div>
+    </li>
+    <button class="delete-button" (click)="delete(task.id)" class="material-symbols-outlined button-delete">delete</button>
+  </ul>
+</div>
